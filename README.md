@@ -11,11 +11,16 @@
 
 1. Убедись что на компьютере установлена LTS-версия Node.js.
    [Скачай и установи](https://nodejs.org/en/) её если необходимо.
-2. Склонируй этот репозиторий.
+2. Склонируй этот репозиторий или скачай его как архив.
 3. Измени имя папки с `react-homework-template` на имя своего проекта.
 4. Создай новый пустой репозиторий на GitHub.
-5. Открой проект в VSCode, запусти терминал и свяжи проект с GitHub-репозиторием
-   [по инструкции](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url).
+5. Открой проект в VSCode, запусти терминал и свяжи свой проект с
+   GitHub-репозиторием.
+   1. Если проект был склонирован, то по
+      [этой инструкции](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url).
+   2. Если проект был скачан архивом, инициализируй Git командой `git init` и
+      дальше по
+      [инструкции](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories#adding-a-remote-repository).
 6. Установи базовые зависимости проекта командой `npm install`.
 7. Запусти режим разработки, выполнив команду `npm start`.
 8. Перейди в браузере по адресу [http://localhost:3000](http://localhost:3000).
@@ -28,17 +33,17 @@
 деплоиться на GitHub Pages, в ветку `gh-pages`, каждый раз когда обновляется
 ветка `main`. Например, после прямого пуша или принятого пул-реквеста. Для этого
 необходимо в файле `package.json` отредактировать поле `homepage`, заменив
-`your_username` и `your_repo_name` на свои, и отправить изменения на GitHub.
+`your_username` и `your_repo_name` на свои.
 
 ```json
 "homepage": "https://your_username.github.io/your_repo_name/"
 ```
 
-Далее необходимо зайти в настройки GitHub-репозитория (`Settings` > `Pages`) и
-выставить раздачу продакшн версии файлов из папки `/root` ветки `gh-pages`, если
-это небыло сделано автоматически.
+На всякий случай стоит зайти на GitHub в настройки репозитория (`Settings` >
+`Pages`) и убедиться что продакшн версии файлов раздаются из папки `/root` ветки
+`gh-pages`.
 
-![GitHub Pages settings](./assets/repo-settings.png)
+![GitHub Pages settings](./repo-settings.png)
 
 ### Статус деплоя
 
@@ -51,7 +56,7 @@
 Более детальную информацию о статусе можно посмотреть кликнув по иконке, и в
 выпадающем окне перейти по ссылке `Details`.
 
-![Deployment status](./assets/status.png)
+![Deployment status](./status.png)
 
 ### Живая страница
 
@@ -76,15 +81,3 @@
   <App />
 </BrowserRouter>
 ```
-
-## Как это работает
-
-![How it works](./assets/how-it-works.png)
-
-1. После каждого пуша в ветку `main` GitHub-репозитория, запускается специальный
-   скрипт (GitHub Action) из файла `.github/workflows/deploy.yml`.
-2. Все файлы репозитория копируются на сервер, где проект инициализируется и
-   проходит линтинг и сборку перед деплоем.
-3. Если все шаги прошли успешно, собранная продакшн версия файлов проекта
-   отправляется в ветку `gh-pages`. В противном случае, в логе выполнения
-   скрипта будет указано в чем проблема.
