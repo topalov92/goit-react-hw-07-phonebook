@@ -1,14 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { ContainerStyled } from "./Container.styles";
+import { ContainerStyled } from './Container.styles';
 
-export const Container = ({children}) => {
-  return (
-    <ContainerStyled>
-      {children}
-    </ContainerStyled>
-  );
+export const Container = ({ children }) => {
+  return <ContainerStyled>{children}</ContainerStyled>;
 };
 
 Container.propTypes = {

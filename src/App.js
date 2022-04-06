@@ -1,42 +1,21 @@
-import { connect } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
-import { Container } from './components/Container/Container';
-import  ContactForm  from './components/ContactForm/ContactForm';
-import  ContactList  from './components/ContactList/ContactList';
-import { Notification } from './components/Notification/Notification';
+import { Toaster } from 'react-hot-toast';
 import Filter from './components/Filter/Filter';
-import { H1Styled, H2Styled } from './App.styles';
+import { Container } from './components/Container/Container'
+import ContactList from './components/ContactList/ContactList';
+import ContactForm from './components/ContactForm/ContactForm';
 
-const App = ({ contacts }) => {
+function App() {
   
   return (
     <Container>
-      <H1Styled>PhoneBook</H1Styled>
-      <H2Styled>Add contact</H2Styled>
+      <Toaster />
+      <h1>Phonebook</h1>
       <ContactForm />
-
-      <H2Styled>Contacts</H2Styled>
-      {contacts.length > 0 ? (
-        <>
-           <Filter
-            id={uuidv4()}
-            label={'Find contacts by name'}
-            placeholder={'Boris Britva'}
-            name={'search'}
-            />
-
-          <ContactList />
-        </>
-      ) : (
-        <Notification />
-      )}
+      <h2>Contacts</h2>
+      <Filter />
+      <ContactList />
     </Container>
   );
-};
+}
 
-const mapStateToProps = state => ({
-  contacts: state.contactList.contacts,
-});
-
-
-export default connect(mapStateToProps)(App);
+export default App;

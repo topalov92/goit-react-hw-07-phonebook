@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const ContainerStyled = styled.div`
   display: flex;
@@ -8,11 +8,8 @@ export const ContainerStyled = styled.div`
   margin-right: auto;
   margin-top: 15px;
   margin-bottom: 15px;
-
-
   width: 500px;
   padding: 10px;
-
-  border: 2px solid orangered;
+  border: 2px solid red;
   border-radius: 20px;
 `;
